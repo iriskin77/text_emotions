@@ -1,8 +1,8 @@
 """
-URL configuration for ml_api project.
+URL configuration for Api_Rest project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
+    https://docs.djangoproject.com/en/4.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -16,10 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-#from ml_api.texts_emotions.urls import
+from ml_mvc.views import upload_file, proc_file, download_file, about
+from rest_framework import routers
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path('api/v1/', include('ml_api.urls')),
-    path('', include('ml_mvc.urls')),
+    path('admin/', admin.site.urls),
+    path('upload_file/', upload_file, name='upload_file'),
+    path('process_file_data/', proc_file, name='proc_file'),
+    path('download_file/', download_file, name='download_file'),
+    path('about/', about, name='about')
 ]
