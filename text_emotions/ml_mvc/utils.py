@@ -1,14 +1,14 @@
 import pandas as pd
 from pymystem3 import Mystem
 from keras.utils import pad_sequences
-from .apps import MlApiConfig
+from .apps import MlMvcConfig
 
 def process_file_data(path: str, name_column: str):
 
     try:
         data_comments = pd.read_excel(path)[name_column]
-        model = MlApiConfig.model
-        tokenizer = MlApiConfig.tokenizer
+        model = MlMvcConfig.model
+        tokenizer = MlMvcConfig.tokenizer
         m = Mystem()
         commentaries = []
         score = []

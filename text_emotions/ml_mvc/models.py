@@ -5,7 +5,7 @@ from django.core.validators import FileExtensionValidator
 class FileModel(models.Model):
 
     name_file = models.CharField(max_length=255, verbose_name="Название файла")
-    author_file = models.CharField(max_length=255, blank=True, verbose_name="Автор файла")
+    author = models.CharField(max_length=255, blank=True, verbose_name="Автор файла")
     name_column = models.CharField(max_length=255, null=False, verbose_name="Название колонки")
     file = models.FileField(upload_to="files/", validators=[FileExtensionValidator(['xlsx'])], verbose_name="Файл")
     status = models.BooleanField(default=False, verbose_name="Статус обработки")

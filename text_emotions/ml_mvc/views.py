@@ -19,18 +19,12 @@ def upload_file(request):
 
 
 def proc_file(request):
-
-    if request.method == 'PUT':
-
-        obj = FileModel.objects.all().last()
-        df = process_file_data(obj.file, obj.name_column)
-        df.to_excel(obj.file.path)
-        obj.status = True
-        obj.save()
-        return render(request, 'download.html')
-
-    else:
-        return None
+     obj = FileModel.objects.all().last()
+     df = process_file_data(obj.file, obj.name_column)
+     df.to_excel(obj.file.path)
+     obj.status = True
+     obj.save()
+     return render(request, 'download.html')
 
 
 def download_file(request):

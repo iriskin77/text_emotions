@@ -10,8 +10,8 @@ class MlApiConfig(AppConfig):
 
     abs_path = Path(__file__).resolve().parent.parent
 
-    model = load_model(rf"{abs_path}/texts_emotions/model/best_model_LSTM10000_2.h5")
+    model = load_model(rf"{abs_path}/model/best_model_LSTM10000_2.h5")
 
-    with open(rf'{abs_path}/texts_emotions/model/tokenizer_json.json') as file:
+    with open(rf'{abs_path}/model/tokenizer_json.json') as file:
         data = json.load(file)
         tokenizer = tokenizer_from_json(data)

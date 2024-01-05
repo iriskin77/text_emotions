@@ -32,6 +32,8 @@ pip-delete-this-directory.txt
 nosetests.xml
 coverage.xml
 .idea/
+.sqlite3/
+/sqlite3
 
 # Translations
 *.mo

@@ -9,15 +9,13 @@
 
 </head>
 
-<link type="text/css" href="{% static 'css/style.css' %}" rel="stylesheet" />
-<link type="text/css" href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet" />
+<link type="text/css" href="{% static '/style.css' %}" rel="stylesheet" />
 <body>
 
 
     <div class="container-menu">
         <a href="{% url 'about' %}">Как пользоваться</a>
-    <a href="{% url 'upload_file' %}">Загрузить файл</a>
-    <a href="{% url 'list_files' %}">Список файлов</a>
+         <a href="{% url 'upload_file' %}">Загрузить файл</a>
     </div>
     <div class="container-content">
         {% block content %}

@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     "ml_api",
-    "ml_api",
+    "ml_mvc",
 
     'rest_framework'
 ]

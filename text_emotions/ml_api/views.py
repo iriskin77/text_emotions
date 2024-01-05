@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import generics
-from .models import File
+from .models import FileModel
 from .serializer import FileSerializer
 from .utils import process_file_data
 from wsgiref.util import FileWrapper
@@ -11,7 +11,7 @@ from django.http import FileResponse
 
 class FileApiList(generics.ListAPIView):
 
-    queryset = File.objects.all()
+    queryset = FileModel.objects.all()
     serializer_class = FileSerializer
 
 
@@ -34,7 +34,7 @@ def process_file(request, pk=None):
 
     if request.method == 'PUT':
 
-        obj = File.objects.get(id=pk)
+        obj = FileModel.objects.get(id=pk)
         name_column = obj.name_column
         file_path = obj.file.path
         data, status = process_file_data(file_path, name_column)
@@ -56,7 +56,7 @@ def download_file(request, pk=None):
 
     if request.method == 'GET':
 
-        obj = File.objects.get(id=pk)
+        obj = FileModel.objects.get(id=pk)
         document = open(obj.file.path, 'rb')
         response = FileResponse(FileWrapper(document), content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
         response['Content-Disposition'] = 'attachment; filename="%s"' % obj.file.name
