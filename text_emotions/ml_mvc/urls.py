@@ -16,12 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from ml_mvc.views import upload_file, proc_file, download_file, about
+from ml_mvc.views import upload_file, process_file, download_file, about, show_list_files
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('upload_file/', upload_file, name='upload_file'),
-    path('process_file_data/', proc_file, name='proc_file'),
-    path('download_file/', download_file, name='download_file'),
+    path('<int:pk>/proc_file_list/', process_file, name='proc_file_list'),
+    path('<int:pk>/download_file_list/', download_file, name='download_file_list'),
+    path('list_files/', show_list_files, name='list_files'),
     path('about/', about, name='about')
 ]
