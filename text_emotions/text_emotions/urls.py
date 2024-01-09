@@ -16,10 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-#from ml_api.texts_emotions.urls import
+from .swagger import urlpatterns as swagger_urls
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('api/v1/', include('ml_api.urls')),
     path('', include('ml_mvc.urls')),
 ]
+
+urlpatterns += swagger_urls
