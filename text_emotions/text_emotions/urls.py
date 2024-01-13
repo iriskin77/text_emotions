@@ -22,7 +22,6 @@ from .swagger import urlpatterns as swagger_urls
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('api/v1/', include('ml_api.urls')),
-    path('', include('ml_mvc.urls')),
 ]
 
 urlpatterns += swagger_urls

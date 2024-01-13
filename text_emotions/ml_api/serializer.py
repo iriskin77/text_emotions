@@ -3,7 +3,6 @@ from .models import FileModel
 
 
 class FileSerializer(serializers.ModelSerializer):
-    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
     class Meta:
         model = FileModel

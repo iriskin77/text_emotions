@@ -1,14 +1,13 @@
 from rest_framework.decorators import api_view, parser_classes
 from rest_framework.response import Response
 from rest_framework import generics, status
+from rest_framework.parsers import FormParser, MultiPartParser
+from django.http import FileResponse
+from django.forms.models import model_to_dict
+from wsgiref.util import FileWrapper
 from .models import FileModel
 from .serializer import FileSerializer
 from .utils import process_file_data
-from wsgiref.util import FileWrapper
-from django.http import FileResponse
-from rest_framework.parsers import FormParser, MultiPartParser
-from django.forms.models import model_to_dict
-
 # Create your views here.
 
 
