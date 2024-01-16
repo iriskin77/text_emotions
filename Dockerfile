@@ -2,11 +2,8 @@ FROM python:3.10-slim
 
 WORKDIR /text_emotions
 
-COPY ./requirements.txt .
+COPY . /text_emotions
 RUN pip install -r requirements.txt
-
-
-COPY . .
 
 EXPOSE 8080
 
